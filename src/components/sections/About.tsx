@@ -1,7 +1,21 @@
 import { Button } from '../ui/button';
 import { Github, Linkedin, Mail } from 'lucide-react';
+import JohnPorkImg from '../../assets/JohnPork.jpg';
+import ChicoImg from '../../assets/Chico.jpg';
+import TrollFaceImg from '../../assets/TrollFace.jpg';
 
-const About = () => {
+type EasterEggMode = 'none' | 'johnpork' | 'chico' | 'troll';
+
+type AboutProps = {
+  easterEgg: EasterEggMode;
+};
+
+const About = ({ easterEgg }: AboutProps) => {
+  let aboutImg = null;
+  if (easterEgg === 'johnpork') aboutImg = JohnPorkImg;
+  else if (easterEgg === 'chico') aboutImg = ChicoImg;
+  else if (easterEgg === 'troll') aboutImg = TrollFaceImg;
+
   return (
     <section id='about' className='py-12 px-4'>
       <div className='container mx-auto'>
@@ -17,9 +31,17 @@ const About = () => {
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-6 items-center'>
           {/* Left Column - Image */}
           <div className='relative aspect-square rounded-lg overflow-hidden bg-muted/30 border border-border/40 flex items-center justify-center'>
-            <span className='text-base text-white/40'>
-              Portrait Placeholder
-            </span>
+            {aboutImg ? (
+              <img
+                src={aboutImg}
+                alt='Easter Egg'
+                className='object-cover w-full h-full'
+              />
+            ) : (
+              <span className='text-base text-white/40'>
+                Portrait Placeholder
+              </span>
+            )}
           </div>
 
           {/* Right Column - Content */}

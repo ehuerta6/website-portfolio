@@ -2,8 +2,54 @@ import { Download, Send, Mail, Linkedin, Github } from 'lucide-react';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
 import { Textarea } from '../ui/textarea';
+import React, { useState } from 'react';
 
-const Contact = () => {
+type EasterEggMode = 'none' | 'johnpork' | 'chico' | 'troll';
+
+type ContactProps = {
+  easterEgg: EasterEggMode;
+  triggerEasterEgg: (mode: EasterEggMode) => void;
+};
+
+const Contact = ({ easterEgg, triggerEasterEgg }: ContactProps) => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [subject, setSubject] = useState('');
+  const [message, setMessage] = useState('');
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const n = name.trim().toLowerCase();
+    const em = email.trim().toLowerCase();
+    const sub = subject.trim().toLowerCase();
+    const msg = message.trim().toLowerCase();
+    if (
+      n === 'john pork' &&
+      em === 'johnpork@gmail.com' &&
+      sub === 'incoming call' &&
+      msg === 'answer'
+    ) {
+      triggerEasterEgg('johnpork');
+    } else if (
+      n === 'chico lachowski' &&
+      em === 'chicolachowski@gmail.com' &&
+      sub === 'mewing time' &&
+      msg === 'time to looksmaxx'
+    ) {
+      triggerEasterEgg('chico');
+    } else if (
+      n === 'troll face' &&
+      em === 'trollface@gmail.com' &&
+      sub === 'phonked' &&
+      msg === 'time to be phonked'
+    ) {
+      triggerEasterEgg('troll');
+    } else {
+      triggerEasterEgg('none');
+    }
+    // ...existing submit logic if any...
+  };
+
   return (
     <section id='contact' className='py-10'>
       <div className='container mx-auto px-4'>
@@ -90,7 +136,10 @@ const Contact = () => {
               Send a Message
             </h3>
 
-            <form className='space-y-4 text-base font-normal text-white/80'>
+            <form
+              className='space-y-4 text-base font-normal text-white/80'
+              onSubmit={handleSubmit}
+            >
               <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                 <div>
                   <label htmlFor='name' className='form-label'>
@@ -101,6 +150,8 @@ const Contact = () => {
                     type='text'
                     placeholder='Your name'
                     className='form-input'
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                   />
                 </div>
                 <div>
@@ -112,6 +163,8 @@ const Contact = () => {
                     type='email'
                     placeholder='Your email'
                     className='form-input'
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
               </div>
@@ -124,6 +177,8 @@ const Contact = () => {
                   type='text'
                   placeholder='Subject'
                   className='form-input'
+                  value={subject}
+                  onChange={(e) => setSubject(e.target.value)}
                 />
               </div>
               <div>
@@ -134,6 +189,8 @@ const Contact = () => {
                   id='message'
                   placeholder='Your message'
                   className='form-input min-h-[100px]'
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
                 />
               </div>
               <Button

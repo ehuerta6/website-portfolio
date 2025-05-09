@@ -132,3 +132,73 @@
 .form-label {
   @apply text-sm text-white/60 mb-1.5 block;
 }
+
+/* John Pork Easter Egg Mode */
+.johnpork-mode {
+  /* Override accent color */
+}
+.johnpork-mode .text-\[\#4FC3F7\],
+.johnpork-mode .hover\:text-\[\#4FC3F7\]:hover,
+.johnpork-mode .border-\[\#4FC3F7\],
+.johnpork-mode .hover\:border-\[\#4FC3F7\]:hover {
+  color: #ff3b3b !important;
+  border-color: #ff3b3b !important;
+}
+.johnpork-mode .bg-\[\#4FC3F7\] {
+  background-color: #ff3b3b !important;
+}
+.johnpork-mode a,
+.johnpork-mode .text-primary,
+.johnpork-mode .hover\:text-primary:hover {
+  color: #ff3b3b !important;
+}
+.johnpork-mode .border-primary {
+  border-color: #ff3b3b !important;
+}
+.johnpork-mode ::-webkit-scrollbar-thumb {
+  background: #ff3b3b !important;
+}
+
+.chico-mode .text-\[\#4FC3F7\],
+.chico-mode .hover\:text-\[\#4FC3F7\]:hover,
+.chico-mode .border-\[\#4FC3F7\],
+.chico-mode .hover\:border-\[\#4FC3F7\]:hover {
+  color: #9b5de5 !important;
+  border-color: #9b5de5 !important;
+}
+.chico-mode .bg-\[\#4FC3F7\] {
+  background-color: #9b5de5 !important;
+}
+.chico-mode a,
+.chico-mode .text-primary,
+.chico-mode .hover\:text-primary:hover {
+  color: #9b5de5 !important;
+}
+.chico-mode .border-primary {
+  border-color: #9b5de5 !important;
+}
+.chico-mode ::-webkit-scrollbar-thumb {
+  background: #9b5de5 !important;
+}
+
+troll-mode .text-\[\#4FC3F7\],
+troll-mode .hover\:text-\[\#4FC3F7\]:hover,
+troll-mode .border-\[\#4FC3F7\],
+troll-mode .hover\:border-\[\#4FC3F7\]:hover {
+  color: #7fffd4 !important;
+  border-color: #7fffd4 !important;
+}
+troll-mode .bg-\[\#4FC3F7\] {
+  background-color: #7fffd4 !important;
+}
+troll-mode a,
+troll-mode .text-primary,
+troll-mode .hover\:text-primary:hover {
+  color: #7fffd4 !important;
+}
+troll-mode .border-primary {
+  border-color: #7fffd4 !important;
+}
+troll-mode ::-webkit-scrollbar-thumb {
+  background: #7fffd4 !important;
+}

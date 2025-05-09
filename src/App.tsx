@@ -6,6 +6,10 @@ import Skills from './components/sections/Skills';
 import Contact from './components/sections/Contact';
 import Footer from './components/sections/Footer';
 import BugChase from './components/BugChase';
+import { useState } from 'react';
+import JohnPorkAudio from './assets/JohnPorkCalling.mp3';
+import NellyFurtadoManeater from './assets/NellyFurtadoManeater.mp3';
+import MangosPhonk from './assets/MangosPhonk.mp3';
 
 const SectionSeparator = () => (
   <div
@@ -13,24 +17,51 @@ const SectionSeparator = () => (
   />
 );
 
+type EasterEggMode = 'none' | 'johnpork' | 'chico' | 'troll';
+
 function App() {
+  const [easterEgg, setEasterEgg] = useState<EasterEggMode>('none');
+  let accentClass = '';
+  let audioSrc: string | null = null;
+  switch (easterEgg) {
+    case 'johnpork':
+      accentClass = 'johnpork-mode';
+      audioSrc = JohnPorkAudio;
+      break;
+    case 'chico':
+      accentClass = 'chico-mode';
+      audioSrc = NellyFurtadoManeater;
+      break;
+    case 'troll':
+      accentClass = 'troll-mode';
+      audioSrc = MangosPhonk;
+      break;
+    default:
+      accentClass = '';
+      audioSrc = null;
+  }
   return (
-    <div className='min-h-screen bg-dark'>
+    <div
+      className={`min-h-screen bg-dark${accentClass ? ' ' + accentClass : ''}`}
+    >
       <Header />
       <main className='relative'>
         <Hero />
         <SectionSeparator />
-        <About />
+        <About easterEgg={easterEgg} />
         <SectionSeparator />
         <Projects />
         <SectionSeparator />
         <Skills />
         <SectionSeparator />
-        <Contact />
+        <Contact easterEgg={easterEgg} triggerEasterEgg={setEasterEgg} />
       </main>
       <SectionSeparator />
       <Footer />
       <BugChase />
+      {audioSrc && (
+        <audio src={audioSrc} autoPlay loop style={{ display: 'none' }} />
+      )}
     </div>
   );
 }
