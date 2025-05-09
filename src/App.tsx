@@ -5,6 +5,7 @@ import Projects from './components/sections/Projects';
 import Skills from './components/sections/Skills';
 import Contact from './components/sections/Contact';
 import Footer from './components/sections/Footer';
+import BugChase from './components/BugChase';
 
 const SectionSeparator = () => (
   <div
@@ -29,6 +30,7 @@ function App() {
       </main>
       <SectionSeparator />
       <Footer />
+      <BugChase />
     </div>
   );
 }
