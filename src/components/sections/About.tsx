@@ -5,12 +5,12 @@ const About = () => {
   return (
     <section id='about' className='py-12 px-4'>
       <div className='container mx-auto'>
-        <div className='text-center mb-8'>
-          <h2 className='text-5xl font-extrabold mb-3'>About Me</h2>
-          <p className='text-xl font-bold text-white/80 max-w-xl mx-auto'>
+        <div className='text-center mb-6'>
+          <h2 className='text-2xl font-semibold mb-2'>About Me</h2>
+          <p className='text-base font-medium text-white/70 max-w-xl mx-auto mb-4'>
             Bridging the gap between{' '}
-            <span className='text-primary font-bold'>web development</span> and{' '}
-            <span className='text-primary font-bold'>data analysis</span>.
+            <span className='text-primary'>web development</span> and{' '}
+            <span className='text-primary'>data analysis</span>.
           </p>
         </div>
 
@@ -23,30 +23,34 @@ const About = () => {
           </div>
 
           {/* Right Column - Content */}
-          <div className='space-y-4 text-white/80 leading-relaxed'>
-            <h3 className='text-xl font-bold mb-2'>My Journey</h3>
-            <p className='text-base font-normal'>
+          <div className='space-y-4 text-base font-normal text-white/80 leading-relaxed'>
+            <h3 className='text-2xl font-semibold mb-2'>My Journey</h3>
+            <p>
               I'm{' '}
-              <span className='text-primary font-bold'>Emiliano Huerta</span>, a
-              passionate developer with over{' '}
-              <span className='text-primary font-bold'>5 years</span> of
+              <span className='text-primary font-medium'>Emiliano Huerta</span>,
+              a passionate developer with over{' '}
+              <span className='text-primary font-medium'>5 years</span> of
               experience in both{' '}
-              <span className='text-primary font-bold'>web development</span>{' '}
-              and <span className='text-primary font-bold'>data analysis</span>.
+              <span className='text-primary font-medium'>web development</span>{' '}
+              and{' '}
+              <span className='text-primary font-medium'>data analysis</span>.
             </p>
-            <p className='text-base font-normal'>
-              On the <span className='font-bold'>web development</span> side, I
-              create modern, responsive applications using{' '}
-              <span className='text-primary font-bold'>React</span>,{' '}
-              <span className='text-primary font-bold'>Next.js</span>, and other
-              cutting-edge technologies.
+            <p>
+              On the <span className='font-medium'>web development</span> side,
+              I create modern, responsive applications using{' '}
+              <span className='text-primary font-medium'>React</span>,{' '}
+              <span className='text-primary font-medium'>Next.js</span>, and
+              other cutting-edge technologies.
             </p>
-            <p className='text-base font-normal'>
-              For <span className='font-bold'>data analysis</span>, I leverage
-              my skills in <span className='text-primary font-bold'>SQL</span>,{' '}
-              <span className='text-primary font-bold'>data visualization</span>
+            <p>
+              For <span className='font-medium'>data analysis</span>, I leverage
+              my skills in <span className='text-primary font-medium'>SQL</span>
+              ,{' '}
+              <span className='text-primary font-medium'>
+                data visualization
+              </span>
               , and{' '}
-              <span className='text-primary font-bold'>
+              <span className='text-primary font-medium'>
                 statistical analysis
               </span>{' '}
               to transform raw data into actionable insights.

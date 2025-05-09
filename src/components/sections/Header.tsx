@@ -1,21 +1,7 @@
-import { Code, Sun, Moon } from 'lucide-react';
+import { Code } from 'lucide-react';
 import ScrollProgress from '../ui/scroll-progress';
-import { useState, useEffect } from 'react';
 
 const Header = () => {
-  // Color mode state
-  const [darkMode, setDarkMode] = useState(true);
-
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
-      document.documentElement.classList.remove('light');
-    } else {
-      document.documentElement.classList.remove('dark');
-      document.documentElement.classList.add('light');
-    }
-  }, [darkMode]);
-
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -75,19 +61,6 @@ const Header = () => {
                 Contact
               </a>
             </nav>
-            <button
-              aria-label={
-                darkMode ? 'Switch to light mode' : 'Switch to dark mode'
-              }
-              onClick={() => setDarkMode((prev) => !prev)}
-              className='ml-2 p-2 rounded transition-colors duration-300 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-primary'
-            >
-              {darkMode ? (
-                <Sun className='h-6 w-6 text-primary' />
-              ) : (
-                <Moon className='h-6 w-6 text-primary' />
-              )}
-            </button>
           </div>
         </div>
       </div>

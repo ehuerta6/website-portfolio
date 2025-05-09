@@ -8,11 +8,11 @@ const Contact = () => {
     <section id='contact' className='py-10'>
       <div className='container mx-auto px-4'>
         {/* Header */}
-        <div className='text-center mb-8'>
-          <h2 className='text-3xl font-bold mb-3'>Get In Touch</h2>
-          <p className='text-lg text-white/70 max-w-xl mx-auto'>
-            Have a project in mind?{' '}
-            <span className='font-bold text-primary'>Let's work together!</span>
+        <div className='text-center mb-6'>
+          <h2 className='text-2xl font-semibold mb-2'>Get In Touch</h2>
+          <p className='text-base font-medium text-white/70 max-w-xl mx-auto mb-4'>
+            Have a <span className='text-primary'>project</span> in mind?{' '}
+            <span className='text-primary'>Let's work together!</span>
           </p>
         </div>
 
@@ -21,19 +21,19 @@ const Contact = () => {
           {/* Left Side - Contact Information */}
           <div className='bg-[#0B111E] flex-1 p-6 flex flex-col justify-between'>
             <div>
-              <h3 className='text-xl font-bold text-[#4FC3F7] mb-6'>
+              <h3 className='text-xl font-semibold text-[#4FC3F7] mb-4'>
                 Contact Information
               </h3>
               <div className='space-y-5'>
                 <div className='flex items-center gap-3'>
                   <Mail className='h-6 w-6 text-[#4FC3F7]' />
                   <div>
-                    <span className='block font-bold text-white leading-tight'>
+                    <span className='block font-medium text-white leading-tight'>
                       Email
                     </span>
                     <a
                       href='mailto:hello@example.com'
-                      className='text-white/80 text-sm hover:text-[#4FC3F7] transition-colors'
+                      className='text-white/80 text-base font-normal hover:text-[#4FC3F7] transition-colors'
                     >
                       hello@example.com
                     </a>
@@ -43,14 +43,14 @@ const Contact = () => {
                 <div className='flex items-center gap-3'>
                   <Linkedin className='h-6 w-6 text-[#4FC3F7]' />
                   <div>
-                    <span className='block font-bold text-white leading-tight'>
+                    <span className='block font-medium text-white leading-tight'>
                       LinkedIn
                     </span>
                     <a
                       href='https://linkedin.com/in/emilianohuerta'
                       target='_blank'
                       rel='noopener noreferrer'
-                      className='text-white/80 text-sm hover:text-[#4FC3F7] transition-colors'
+                      className='text-white/80 text-base font-normal hover:text-[#4FC3F7] transition-colors'
                     >
                       linkedin.com/in/emilianohuerta
                     </a>
@@ -60,14 +60,14 @@ const Contact = () => {
                 <div className='flex items-center gap-3'>
                   <Github className='h-6 w-6 text-[#4FC3F7]' />
                   <div>
-                    <span className='block font-bold text-white leading-tight'>
+                    <span className='block font-medium text-white leading-tight'>
                       GitHub
                     </span>
                     <a
                       href='https://github.com/emilianohuerta'
                       target='_blank'
                       rel='noopener noreferrer'
-                      className='text-white/80 text-sm hover:text-[#4FC3F7] transition-colors'
+                      className='text-white/80 text-base font-normal hover:text-[#4FC3F7] transition-colors'
                     >
                       github.com/emilianohuerta
                     </a>
@@ -79,18 +79,18 @@ const Contact = () => {
               variant='outline'
               className='btn-transparent w-full mt-6 flex items-center justify-between'
             >
-              <span className='font-semibold'>Download Resume</span>
+              <span className='font-medium'>Download Resume</span>
               <Download className='h-4 w-4 ml-2' />
             </Button>
           </div>
 
           {/* Right Side - Contact Form */}
           <div className='bg-[#030712] flex-1 p-6 border-l border-white/10'>
-            <h3 className='text-xl font-bold text-[#4FC3F7] mb-6'>
+            <h3 className='text-xl font-semibold text-[#4FC3F7] mb-4'>
               Send a Message
             </h3>
 
-            <form className='space-y-4'>
+            <form className='space-y-4 text-base font-normal text-white/80'>
               <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                 <div>
                   <label htmlFor='name' className='form-label'>
@@ -141,7 +141,7 @@ const Contact = () => {
                 className='btn-transparent w-full flex items-center justify-center'
               >
                 <Send className='mr-2 h-4 w-4' />
-                <span className='font-bold'>Send Message</span>
+                <span className='font-medium'>Send Message</span>
               </Button>
             </form>
           </div>
