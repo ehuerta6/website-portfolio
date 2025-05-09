@@ -16,6 +16,10 @@ const Header = () => {
     }
   }, [darkMode]);
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <header className='fixed top-0 left-0 right-0 z-50 bg-dark-translucent backdrop-blur-sm border-b border-border/20 transition-colors duration-300'>
       <ScrollProgress />
@@ -23,18 +27,29 @@ const Header = () => {
         <div className='flex items-center justify-between'>
           <div className='flex items-center space-x-3'>
             <Code className='h-7 w-7 text-primary' />
-            <span className='text-2xl font-bold tracking-tight'>
+            <button
+              onClick={scrollToTop}
+              className='text-2xl font-bold tracking-tight text-white hover:text-primary transition-colors focus:outline-none'
+              aria-label='Go to top'
+              style={{
+                background: 'none',
+                border: 'none',
+                padding: 0,
+                cursor: 'pointer',
+              }}
+            >
               DevPortfolio
-            </span>
+            </button>
           </div>
           <div className='flex items-center space-x-2 md:space-x-8'>
             <nav className='hidden md:flex items-center space-x-8'>
-              <a
-                href='#home'
-                className='text-sm font-medium hover:text-primary transition-colors'
+              <button
+                onClick={scrollToTop}
+                className='text-sm font-medium hover:text-primary transition-colors bg-transparent border-none p-0 cursor-pointer focus:outline-none'
+                aria-label='Go to top'
               >
                 Home
-              </a>
+              </button>
               <a
                 href='#about'
                 className='text-sm font-medium hover:text-primary transition-colors'
