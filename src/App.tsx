@@ -13,7 +13,6 @@ import {
   FileText,
   Send,
   Database,
-  Brain,
   Globe,
   Terminal,
   Table,
@@ -70,25 +69,25 @@ const App = () => {
         <div className='container mx-auto text-center'>
           <Badge
             variant='outline'
-            className='mb-8 px-4 py-2 text-sm font-medium border-primary/30 text-primary hover:bg-primary/10 transition-colors'
+            className='mb-8 px-4 py-2 text-sm font-bold border-primary/30 text-primary hover:bg-primary/10 transition-colors'
           >
             Available for Hire
           </Badge>
 
           <h2 className='text-5xl md:text-7xl font-bold mb-8 tracking-tight'>
-            Hi, I'm <span className='text-primary'>John Doe</span>
+            Hi, I'm <span className='text-primary font-bold'>John Doe</span>
           </h2>
 
-          <p className='text-xl md:text-2xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed'>
+          <p className='text-xl md:text-2xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed font-medium'>
             Specializing in{' '}
-            <span className='text-primary'>Web Development</span> and{' '}
-            <span className='text-primary'>Data Analysis</span>
+            <span className='text-primary font-bold'>Web Development</span> and{' '}
+            <span className='text-primary font-bold'>Data Analysis</span>
           </p>
 
           <div className='flex flex-col sm:flex-row items-center justify-center gap-4'>
             <Button
               size='lg'
-              className='bg-primary text-primary-foreground hover:bg-primary/90 px-8 transition-colors'
+              className='bg-primary text-primary-foreground hover:bg-primary/90 px-8 transition-colors font-bold'
             >
               <FolderGit2 className='h-5 w-5 mr-2' />
               View Projects
@@ -96,7 +95,7 @@ const App = () => {
             <Button
               variant='outline'
               size='lg'
-              className='border-muted-foreground/30 text-muted-foreground hover:bg-muted/30 px-8 transition-colors'
+              className='border-muted-foreground/30 text-muted-foreground hover:bg-muted/30 px-8 transition-colors font-bold'
             >
               <FileText className='h-5 w-5 mr-2' />
               My Resume
@@ -104,7 +103,7 @@ const App = () => {
             <Button
               variant='outline'
               size='lg'
-              className='border-[#0A1A2F] text-[#0A1A2F] hover:bg-[#0A1A2F]/10 px-8 transition-colors'
+              className='border-[#0A1A2F] text-[#0A1A2F] hover:bg-[#0A1A2F]/10 px-8 transition-colors font-bold'
             >
               <Send className='h-5 w-5 mr-2' />
               Contact Me
@@ -118,15 +117,17 @@ const App = () => {
         <div className='container mx-auto'>
           <div className='text-center mb-16'>
             <h2 className='text-4xl font-bold mb-4'>About Me</h2>
-            <p className='text-xl text-muted-foreground'>
-              Bridging the gap between web development and data analysis
+            <p className='text-lg text-muted-foreground font-medium'>
+              Bridging the gap between{' '}
+              <span className='text-primary font-bold'>web development</span>{' '}
+              and <span className='text-primary font-bold'>data analysis</span>
             </p>
           </div>
 
           <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 items-center'>
             {/* Left Column - Image */}
             <div className='relative aspect-square rounded-lg overflow-hidden bg-muted/30 border border-border/40'>
-              <div className='absolute inset-0 flex items-center justify-center text-muted-foreground'>
+              <div className='absolute inset-0 flex items-center justify-center text-muted-foreground font-medium'>
                 <span className='text-lg'>Portrait Placeholder</span>
               </div>
             </div>
@@ -134,22 +135,30 @@ const App = () => {
             {/* Right Column - Content */}
             <div className='space-y-8'>
               <div>
-                <h3 className='text-2xl font-semibold mb-6'>My Journey</h3>
-                <div className='space-y-4 text-muted-foreground leading-relaxed'>
+                <h3 className='text-2xl font-bold mb-6'>My Journey</h3>
+                <div className='space-y-4 text-muted-foreground leading-relaxed font-medium'>
                   <p>
-                    I'm Emiliano Huerta, a passionate developer with over 5
-                    years of experience in both web development and data
-                    analysis. My technical journey began with building
-                    responsive web applications, and evolved to include
-                    data-driven solutions that help businesses make informed
-                    decisions.
+                    I'm{' '}
+                    <span className='text-primary font-bold'>
+                      Emiliano Huerta
+                    </span>
+                    , a passionate developer with over{' '}
+                    <span className='text-primary font-bold'>5 years</span> of
+                    experience in both web development and data analysis. My
+                    technical journey began with building responsive web
+                    applications, and evolved to include data-driven solutions
+                    that help businesses make informed decisions.
                   </p>
                   <p>
                     On the web development side, I create modern, responsive
-                    applications using React, Next.js, and other cutting-edge
-                    technologies. For data analysis, I leverage my skills in
-                    SQL, data visualization, and statistical analysis to
-                    transform raw data into actionable insights.
+                    applications using{' '}
+                    <span className='text-primary font-bold'>React</span>,{' '}
+                    <span className='text-primary font-bold'>Next.js</span>, and
+                    other cutting-edge technologies. For data analysis, I
+                    leverage my skills in{' '}
+                    <span className='text-primary font-bold'>SQL</span>, data
+                    visualization, and statistical analysis to transform raw
+                    data into actionable insights.
                   </p>
                 </div>
               </div>
@@ -159,14 +168,14 @@ const App = () => {
                 <Button
                   variant='outline'
                   size='lg'
-                  className='bg-[#0A1A2F] text-white border-[#0A1A2F] hover:bg-[#0A1A2F]/90 transition-colors'
+                  className='bg-[#0A1A2F] text-white border-[#0A1A2F] hover:bg-[#0A1A2F]/90 transition-colors font-bold'
                 >
                   <Github className='h-5 w-5 mr-2' />
                   GitHub
                 </Button>
                 <Button
                   size='lg'
-                  className='bg-primary text-primary-foreground hover:bg-primary/90 transition-colors'
+                  className='bg-primary text-primary-foreground hover:bg-primary/90 transition-colors font-bold'
                 >
                   <Linkedin className='h-5 w-5 mr-2' />
                   LinkedIn
@@ -174,7 +183,7 @@ const App = () => {
                 <Button
                   variant='outline'
                   size='lg'
-                  className='border-muted-foreground/30 text-muted-foreground hover:bg-muted/30 transition-colors'
+                  className='border-muted-foreground/30 text-muted-foreground hover:bg-muted/30 transition-colors font-bold'
                 >
                   <Mail className='h-5 w-5 mr-2' />
                   Email
@@ -190,8 +199,10 @@ const App = () => {
         <div className='container mx-auto'>
           <div className='text-center mb-16'>
             <h2 className='text-4xl font-bold mb-4'>Projects</h2>
-            <p className='text-xl text-muted-foreground'>
-              A showcase of my latest work and experiments
+            <p className='text-lg text-muted-foreground font-medium'>
+              A showcase of my latest{' '}
+              <span className='text-primary font-bold'>work</span> and{' '}
+              <span className='text-primary font-bold'>experiments</span>
             </p>
           </div>
 
@@ -203,23 +214,29 @@ const App = () => {
               >
                 {/* Project Image */}
                 <div className='relative aspect-video overflow-hidden rounded-t-lg bg-muted/30'>
-                  <div className='absolute inset-0 flex items-center justify-center text-muted-foreground'>
+                  <div className='absolute inset-0 flex items-center justify-center text-muted-foreground font-medium'>
                     Project Image {project}
                   </div>
                 </div>
 
                 {/* Project Content */}
                 <div className='p-6 space-y-4'>
-                  <h3 className='text-xl font-semibold'>Project {project}</h3>
-                  <p className='text-muted-foreground'>
+                  <h3 className='text-xl font-bold'>Project {project}</h3>
+                  <p className='text-muted-foreground font-medium'>
                     A brief description of the project and its key features.
                   </p>
 
                   {/* Technologies */}
                   <div className='flex flex-wrap gap-2'>
-                    <Badge variant='secondary'>React</Badge>
-                    <Badge variant='secondary'>TypeScript</Badge>
-                    <Badge variant='secondary'>Node.js</Badge>
+                    <Badge variant='secondary' className='font-bold'>
+                      React
+                    </Badge>
+                    <Badge variant='secondary' className='font-bold'>
+                      TypeScript
+                    </Badge>
+                    <Badge variant='secondary' className='font-bold'>
+                      Node.js
+                    </Badge>
                   </div>
 
                   {/* Action Buttons */}
@@ -227,14 +244,14 @@ const App = () => {
                     <Button
                       variant='outline'
                       size='sm'
-                      className='flex-1 border-primary text-primary hover:bg-primary/10'
+                      className='flex-1 border-primary text-primary hover:bg-primary/10 font-bold'
                     >
                       <Eye className='h-4 w-4 mr-2' />
                       View Details
                     </Button>
                     <Button
                       size='sm'
-                      className='flex-1 bg-[#0A1A2F] text-white hover:bg-[#0A1A2F]/90'
+                      className='flex-1 bg-[#0A1A2F] text-white hover:bg-[#0A1A2F]/90 font-bold'
                     >
                       <ExternalLink className='h-4 w-4 mr-2' />
                       View Project
@@ -252,8 +269,9 @@ const App = () => {
         <div className='container mx-auto'>
           <div className='text-center mb-16'>
             <h2 className='text-4xl font-bold mb-4'>Skills & Expertise</h2>
-            <p className='text-xl text-muted-foreground'>
-              Technologies and tools I work with
+            <p className='text-lg text-muted-foreground font-medium'>
+              Technologies and tools I{' '}
+              <span className='text-primary font-bold'>work</span> with
             </p>
           </div>
 
@@ -261,8 +279,8 @@ const App = () => {
             {/* Web Development */}
             <div className='space-y-6'>
               <div className='flex items-center gap-3 mb-6'>
-                <Brain className='h-6 w-6 text-primary' />
-                <h3 className='text-2xl font-semibold'>Web Development</h3>
+                <Globe className='h-6 w-6 text-primary' />
+                <h3 className='text-2xl font-bold'>Web Development</h3>
               </div>
               <div className='grid grid-cols-2 sm:grid-cols-3 gap-4'>
                 {[
@@ -281,7 +299,7 @@ const App = () => {
                     className='flex items-center gap-2 p-3 rounded-lg bg-muted/30 hover:bg-muted/50 transition-colors'
                   >
                     <skill.icon className='h-4 w-4 text-primary' />
-                    <span className='text-sm'>{skill.name}</span>
+                    <span className='text-sm font-bold'>{skill.name}</span>
                   </div>
                 ))}
               </div>
@@ -290,8 +308,8 @@ const App = () => {
             {/* Data & Databases */}
             <div className='space-y-6'>
               <div className='flex items-center gap-3 mb-6'>
-                <BarChart3 className='h-6 w-6 text-primary' />
-                <h3 className='text-2xl font-semibold'>Data & Databases</h3>
+                <Database className='h-6 w-6 text-primary' />
+                <h3 className='text-2xl font-bold'>Data & Databases</h3>
               </div>
               <div className='grid grid-cols-2 sm:grid-cols-3 gap-4'>
                 {[
@@ -310,7 +328,7 @@ const App = () => {
                     className='flex items-center gap-2 p-3 rounded-lg bg-muted/30 hover:bg-muted/50 transition-colors'
                   >
                     <skill.icon className='h-4 w-4 text-primary' />
-                    <span className='text-sm'>{skill.name}</span>
+                    <span className='text-sm font-bold'>{skill.name}</span>
                   </div>
                 ))}
               </div>
