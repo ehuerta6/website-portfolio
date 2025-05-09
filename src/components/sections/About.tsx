@@ -54,29 +54,30 @@ const About = () => {
             </div>
 
             {/* Social Links */}
-            <div className='flex flex-wrap gap-4 pt-4'>
+            <div className='flex gap-6 pt-4'>
               <Button
                 variant='outline'
-                size='lg'
-                className='bg-[#0A1A2F] text-white border-[#0A1A2F] hover:bg-[#0A1A2F]/90 transition-colors font-bold'
+                size='icon'
+                className='h-12 w-12 border-muted-foreground/30 text-muted-foreground hover:text-primary hover:border-primary transition-colors'
+                aria-label='GitHub Profile'
               >
-                <Github className='h-5 w-5 mr-2' />
-                GitHub
-              </Button>
-              <Button
-                size='lg'
-                className='bg-primary text-primary-foreground hover:bg-primary/90 transition-colors font-bold'
-              >
-                <Linkedin className='h-5 w-5 mr-2' />
-                LinkedIn
+                <Github className='h-5 w-5' />
               </Button>
               <Button
                 variant='outline'
-                size='lg'
-                className='border-muted-foreground/30 text-muted-foreground hover:bg-muted/30 transition-colors font-bold'
+                size='icon'
+                className='h-12 w-12 border-muted-foreground/30 text-muted-foreground hover:text-primary hover:border-primary transition-colors'
+                aria-label='LinkedIn Profile'
               >
-                <Mail className='h-5 w-5 mr-2' />
-                Email
+                <Linkedin className='h-5 w-5' />
+              </Button>
+              <Button
+                variant='outline'
+                size='icon'
+                className='h-12 w-12 border-muted-foreground/30 text-muted-foreground hover:text-primary hover:border-primary transition-colors'
+                aria-label='Email Contact'
+              >
+                <Mail className='h-5 w-5' />
               </Button>
             </div>
           </div>

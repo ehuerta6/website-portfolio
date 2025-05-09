@@ -8,7 +8,7 @@ const Hero = () => {
       <div className='container mx-auto text-center'>
         <Badge
           variant='outline'
-          className='mb-8 px-4 py-2 text-sm font-bold border-primary/30 text-primary hover:bg-primary/10 transition-colors'
+          className='mb-8 px-3 py-1 text-xs font-medium text-white border-white/30 hover:border-white/50 transition-all duration-300 animate-float'
         >
           Available for Hire
         </Badge>
