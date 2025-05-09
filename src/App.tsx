@@ -9,6 +9,15 @@ import {
   Code,
   ExternalLink,
   Eye,
+  FolderGit2,
+  FileText,
+  Send,
+  Database,
+  Brain,
+  Globe,
+  Terminal,
+  Table,
+  BarChart3,
 } from 'lucide-react';
 
 const App = () => {
@@ -59,10 +68,6 @@ const App = () => {
       {/* Hero Section */}
       <section className='min-h-screen pt-32 pb-24 px-6 flex items-center'>
         <div className='container mx-auto text-center'>
-          <p className='text-lg text-muted-foreground mb-4 tracking-wide'>
-            Welcome to My World
-          </p>
-
           <Badge
             variant='outline'
             className='mb-8 px-4 py-2 text-sm font-medium border-primary/30 text-primary hover:bg-primary/10 transition-colors'
@@ -85,6 +90,7 @@ const App = () => {
               size='lg'
               className='bg-primary text-primary-foreground hover:bg-primary/90 px-8 transition-colors'
             >
+              <FolderGit2 className='h-5 w-5 mr-2' />
               View Projects
             </Button>
             <Button
@@ -92,6 +98,7 @@ const App = () => {
               size='lg'
               className='border-muted-foreground/30 text-muted-foreground hover:bg-muted/30 px-8 transition-colors'
             >
+              <FileText className='h-5 w-5 mr-2' />
               My Resume
             </Button>
             <Button
@@ -99,6 +106,7 @@ const App = () => {
               size='lg'
               className='border-[#0A1A2F] text-[#0A1A2F] hover:bg-[#0A1A2F]/10 px-8 transition-colors'
             >
+              <Send className='h-5 w-5 mr-2' />
               Contact Me
             </Button>
           </div>
@@ -240,21 +248,73 @@ const App = () => {
       </section>
 
       {/* Skills Section */}
-      <section id='skills' className='py-24 px-6 bg-muted/30'>
+      <section id='skills' className='py-24 px-6'>
         <div className='container mx-auto'>
-          <h2 className='text-3xl font-bold mb-16 text-center'>Skills</h2>
-          <div className='flex flex-wrap justify-center gap-4'>
-            {['React', 'TypeScript', 'Node.js', 'Python', 'AWS', 'Docker'].map(
-              (skill) => (
-                <Badge
-                  key={skill}
-                  variant='outline'
-                  className='text-primary border-primary px-4 py-2 text-base'
-                >
-                  {skill}
-                </Badge>
-              )
-            )}
+          <div className='text-center mb-16'>
+            <h2 className='text-4xl font-bold mb-4'>Skills & Expertise</h2>
+            <p className='text-xl text-muted-foreground'>
+              Technologies and tools I work with
+            </p>
+          </div>
+
+          <div className='grid grid-cols-1 md:grid-cols-2 gap-12'>
+            {/* Web Development */}
+            <div className='space-y-6'>
+              <div className='flex items-center gap-3 mb-6'>
+                <Brain className='h-6 w-6 text-primary' />
+                <h3 className='text-2xl font-semibold'>Web Development</h3>
+              </div>
+              <div className='grid grid-cols-2 sm:grid-cols-3 gap-4'>
+                {[
+                  { name: 'JavaScript', icon: Globe },
+                  { name: 'React', icon: Code },
+                  { name: 'Next.js', icon: Terminal },
+                  { name: 'TypeScript', icon: Code },
+                  { name: 'Node.js', icon: Terminal },
+                  { name: 'Firebase', icon: Database },
+                  { name: 'HTML', icon: Globe },
+                  { name: 'CSS', icon: Globe },
+                  { name: 'Tailwind CSS', icon: Globe },
+                ].map((skill) => (
+                  <div
+                    key={skill.name}
+                    className='flex items-center gap-2 p-3 rounded-lg bg-muted/30 hover:bg-muted/50 transition-colors'
+                  >
+                    <skill.icon className='h-4 w-4 text-primary' />
+                    <span className='text-sm'>{skill.name}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Data & Databases */}
+            <div className='space-y-6'>
+              <div className='flex items-center gap-3 mb-6'>
+                <BarChart3 className='h-6 w-6 text-primary' />
+                <h3 className='text-2xl font-semibold'>Data & Databases</h3>
+              </div>
+              <div className='grid grid-cols-2 sm:grid-cols-3 gap-4'>
+                {[
+                  { name: 'Python', icon: Terminal },
+                  { name: 'SQL', icon: Database },
+                  { name: 'MySQL', icon: Database },
+                  { name: 'PostgreSQL', icon: Database },
+                  { name: 'Supabase', icon: Database },
+                  { name: 'Pandas', icon: Table },
+                  { name: 'Tableau', icon: BarChart3 },
+                  { name: 'R', icon: Terminal },
+                  { name: 'Excel', icon: Table },
+                ].map((skill) => (
+                  <div
+                    key={skill.name}
+                    className='flex items-center gap-2 p-3 rounded-lg bg-muted/30 hover:bg-muted/50 transition-colors'
+                  >
+                    <skill.icon className='h-4 w-4 text-primary' />
+                    <span className='text-sm'>{skill.name}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
