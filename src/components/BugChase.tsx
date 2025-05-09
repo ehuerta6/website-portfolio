@@ -1,4 +1,9 @@
-import { useState, useEffect, useRef } from 'react';
+'use client';
+
+import React, { useState, useEffect, useCallback, useRef } from 'react';
+import { Check, X } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 
 // Funny debugging messages that will appear when catching a bug
 const debuggingMessages = [
@@ -20,15 +25,17 @@ const debuggingMessages = [
 ];
 
 export default function BugChase() {
-  const [bugVisible, setBugVisible] = useState(false);
-  const [bugPosition, setBugPosition] = useState({ x: 0, y: 0 });
-  const [bugDirection, setBugDirection] = useState({ x: 1, y: 0 }); // Initial direction: right
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [rotation, setRotation] = useState(0);
+  const [speed, setSpeed] = useState({ x: 2, y: 2 });
+  const [message, setMessage] = useState('');
   const [messageVisible, setMessageVisible] = useState(false);
-  const [currentMessage, setCurrentMessage] = useState('');
+  const [isMoving, setIsMoving] = useState(true);
   const [bugsFound, setBugsFound] = useState(0);
-  const bugRef = useRef<HTMLDivElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [bugRotation, setBugRotation] = useState(0);
+  const [bugVisible, setBugVisible] = useState(false);
+  const bugTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const bugAppearTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const [showCounter, setShowCounter] = useState(false);
 
   // Initialize bug counter from localStorage
   useEffect(() => {
@@ -38,171 +45,181 @@ export default function BugChase() {
     }
   }, []);
 
-  // Randomly show the bug (every 10-30 seconds)
+  // Timed bug appearance/disappearance
   useEffect(() => {
-    let timeout: NodeJS.Timeout;
-    const showBug = () => {
-      if (!bugVisible && !messageVisible && Math.random() < 0.7) {
-        // 70% chance to show a bug
-        const edge = Math.floor(Math.random() * 4);
-        let x = 0,
-          y = 0,
-          dirX = 0,
-          dirY = 0;
-        const viewportWidth = window.innerWidth;
-        const viewportHeight = window.innerHeight;
-        switch (edge) {
-          case 0:
-            x = Math.floor(Math.random() * (viewportWidth - 100)) + 50;
-            y = 0;
-            dirX = Math.random() > 0.5 ? 1 : -1;
-            dirY = 1;
-            break;
-          case 1:
-            x = viewportWidth;
-            y = Math.floor(Math.random() * (viewportHeight - 100)) + 50;
-            dirX = -1;
-            dirY = Math.random() > 0.5 ? 1 : -1;
-            break;
-          case 2:
-            x = Math.floor(Math.random() * (viewportWidth - 100)) + 50;
-            y = viewportHeight;
-            dirX = Math.random() > 0.5 ? 1 : -1;
-            dirY = -1;
-            break;
-          case 3:
-            x = 0;
-            y = Math.floor(Math.random() * (viewportHeight - 100)) + 50;
-            dirX = 1;
-            dirY = Math.random() > 0.5 ? 1 : -1;
-            break;
-        }
-        setBugPosition({ x, y });
-        setBugDirection({ x: dirX, y: dirY });
+    function scheduleBugAppearance() {
+      const appearDelay = Math.random() * 20000 + 10000; // 10-30s
+      bugAppearTimeoutRef.current = setTimeout(() => {
+        // Set random position
+        setPosition({
+          x: Math.random() * (window.innerWidth - 50),
+          y: Math.random() * (window.innerHeight - 50),
+        });
+        // Set speed based on bugsFound
+        const baseSpeed = 2;
+        const maxSpeed = 10;
+        const increment = 0.5; // speed increase per bug
+        const speedMagnitude = Math.min(
+          baseSpeed + bugsFound * increment,
+          maxSpeed
+        );
+        const angle = Math.random() * 2 * Math.PI;
+        setSpeed({
+          x: Math.cos(angle) * speedMagnitude,
+          y: Math.sin(angle) * speedMagnitude,
+        });
         setBugVisible(true);
-        setTimeout(() => {
+        // Schedule disappearance
+        const disappearDelay = Math.random() * 5000 + 5000; // 5-10s
+        bugTimeoutRef.current = setTimeout(() => {
           setBugVisible(false);
-        }, 10000);
-      }
-      // Schedule next bug appearance randomly between 10-30 seconds
-      const nextDelay = Math.floor(Math.random() * 20000) + 10000;
-      timeout = setTimeout(showBug, nextDelay);
+          scheduleBugAppearance();
+        }, disappearDelay);
+      }, appearDelay);
+    }
+    // Start the first appearance
+    scheduleBugAppearance();
+    return () => {
+      if (bugTimeoutRef.current) clearTimeout(bugTimeoutRef.current);
+      if (bugAppearTimeoutRef.current)
+        clearTimeout(bugAppearTimeoutRef.current);
     };
-    showBug();
-    return () => clearTimeout(timeout);
-  }, [bugVisible, messageVisible]);
+  }, [bugsFound]);
 
-  // Animate bug movement (speed increases with bugsFound, rotates on corner touch)
+  // Move bug only when visible
+  const moveBug = useCallback(() => {
+    if (!isMoving || !bugVisible) return;
+    setPosition((prev) => {
+      const { x, y } = prev;
+      let { x: dx, y: dy } = speed;
+      const windowWidth = window.innerWidth;
+      const windowHeight = window.innerHeight;
+      let bounced = false;
+      if (x + dx >= windowWidth - 50 || x + dx <= 0) {
+        dx = -dx;
+        bounced = true;
+      }
+      if (y + dy >= windowHeight - 50 || y + dy <= 0) {
+        dy = -dy;
+        bounced = true;
+      }
+      if (bounced) setSpeed({ x: dx, y: dy });
+      return {
+        x: Math.max(0, Math.min(windowWidth - 50, x + dx)),
+        y: Math.max(0, Math.min(windowHeight - 50, y + dy)),
+      };
+    });
+    setRotation((prev) => (prev + 1) % 360);
+  }, [speed, isMoving, bugVisible]);
+
   useEffect(() => {
-    if (!bugVisible || messageVisible) return;
-    let animationFrame: number;
-    const moveBug = () => {
-      if (bugRef.current && containerRef.current) {
-        const speed = 0.7 + Math.min(bugsFound * 0.2, 4); // Start slow, max out at 4.7
-        let newX = bugPosition.x + bugDirection.x * speed;
-        let newY = bugPosition.y + bugDirection.y * speed;
-        const bugSize = 24; // Smaller bug
-        let touchedCorner = false;
-        if (newX <= 0 || newX >= window.innerWidth - bugSize) {
-          setBugDirection((prev) => ({ ...prev, x: -prev.x }));
-          touchedCorner = true;
-        }
-        if (newY <= 0 || newY >= window.innerHeight - bugSize) {
-          setBugDirection((prev) => ({ ...prev, y: -prev.y }));
-          touchedCorner = true;
-        }
-        if (touchedCorner) {
-          setBugRotation((prev) => prev + 90);
-        }
-        newX = Math.max(0, Math.min(newX, window.innerWidth - bugSize));
-        newY = Math.max(0, Math.min(newY, window.innerHeight - bugSize));
-        setBugPosition({ x: newX, y: newY });
-      }
-      animationFrame = requestAnimationFrame(moveBug);
-    };
-    animationFrame = requestAnimationFrame(moveBug);
-    return () => cancelAnimationFrame(animationFrame);
-  }, [bugVisible, bugPosition, bugDirection, messageVisible, bugsFound]);
-
-  // Handle bug click
-  const catchBug = () => {
     if (!bugVisible) return;
-    setBugVisible(false);
-    const randomIndex = Math.floor(Math.random() * debuggingMessages.length);
-    setCurrentMessage(debuggingMessages[randomIndex]);
+    const interval = setInterval(moveBug, 16);
+    return () => clearInterval(interval);
+  }, [moveBug, bugVisible]);
+
+  const catchBug = () => {
+    const randomMessage =
+      debuggingMessages[Math.floor(Math.random() * debuggingMessages.length)];
+    setMessage(randomMessage);
     setMessageVisible(true);
+    setIsMoving(false);
+
+    // Update bug counter
     const newCount = bugsFound + 1;
     setBugsFound(newCount);
     localStorage.setItem('bugsFound', newCount.toString());
+
+    // Show counter if this is the first bug caught
+    if (newCount === 1) {
+      setShowCounter(true);
+    }
+
+    // Reset after message disappears
     setTimeout(() => {
       setMessageVisible(false);
-    }, 1000);
+      setIsMoving(true);
+      setPosition({
+        x: Math.random() * (window.innerWidth - 50),
+        y: Math.random() * (window.innerHeight - 50),
+      });
+    }, 2000);
+  };
+
+  // Toggle bug counter visibility
+  const toggleCounter = () => {
+    setShowCounter(!showCounter);
   };
 
   return (
-    <div
-      ref={containerRef}
-      className={`bug-chase-container pointer-events-none ${
-        messageVisible ? 'blur-sm transition-all duration-300' : ''
-      }`}
-    >
-      {/* The bug */}
-      {bugVisible && (
-        <div
-          ref={bugRef}
-          className='fixed z-[9999] cursor-pointer pointer-events-auto'
-          style={{
-            left: `${bugPosition.x}px`,
-            top: `${bugPosition.y}px`,
-            fontSize: 24, // Smaller bug
-            filter: 'drop-shadow(0 2px 8px #0008)',
-            userSelect: 'none',
-            transition: 'transform 0.2s',
-            transform: `rotate(${bugRotation}deg)`,
-          }}
-          onClick={catchBug}
-          tabIndex={0}
-          role='button'
-          aria-label='Catch the bug'
-        >
-          <span
-            style={{
-              fontSize: 24,
-              fontWeight: 700,
-              padding: 2,
-              borderRadius: 8,
-              background: 'rgba(0,0,0,0.15)',
-            }}
-          >
-            🐛
-          </span>
-        </div>
-      )}
+    <div className='bug-chase-container'>
+      <div
+        className='fixed z-50 cursor-pointer select-none animate-wiggle'
+        style={{
+          left: `${position.x}px`,
+          top: `${position.y}px`,
+          transform: `rotate(${rotation}deg)`,
+          transition: 'transform 0.1s ease-out',
+          display: bugVisible ? 'block' : 'none',
+        }}
+        onClick={catchBug}
+      >
+        🐛
+      </div>
 
-      {/* Message popup */}
       {messageVisible && (
-        <div className='fixed z-[9999] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none'>
-          <div className='bg-[#222] text-white px-4 py-2 rounded-lg shadow-lg text-base font-medium animate-fade-out'>
-            {currentMessage}
+        <div className='fixed inset-0 flex items-center justify-center z-50 pointer-events-none'>
+          <div className='bg-background/80 backdrop-blur-sm px-6 py-3 rounded-lg shadow-lg animate-pop-in'>
+            <div className='flex items-start gap-3'>
+              <div className='bg-green-100 dark:bg-green-900/30 p-2 rounded-full'>
+                <Check className='h-5 w-5 text-green-600 dark:text-green-400' />
+              </div>
+              <div className='flex-1'>
+                <h3 className='font-medium text-lg'>Bug Caught!</h3>
+                <p className='text-muted-foreground mt-1'>{message}</p>
+              </div>
+              <Button
+                variant='ghost'
+                size='icon'
+                className='h-6 w-6 rounded-full opacity-70 hover:opacity-100 transition-opacity'
+                onClick={() => setMessageVisible(false)}
+                aria-label='Close message'
+              >
+                <X className='h-3 w-3' />
+              </Button>
+            </div>
+
+            {/* Show bug counter for first catch */}
+            {bugsFound === 1 && (
+              <div className='mt-3 pt-3 border-t text-sm text-muted-foreground'>
+                <p>
+                  You've started your bug collection! Check the bottom-left
+                  corner to track your progress.
+                </p>
+              </div>
+            )}
           </div>
         </div>
       )}
 
-      {/* Bug counter (only if at least one bug fixed) */}
-      {bugsFound > 0 && (
-        <div
-          className='fixed bottom-6 left-1/2 -translate-x-1/2 z-[9999] pointer-events-auto select-none flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#23272f] via-[#222] to-[#23272f] shadow-lg border border-[#4FC3F7] rounded-full backdrop-blur-md'
-          style={{ fontFamily: 'inherit', minWidth: 160 }}
+      {/* Bug counter */}
+      <div
+        className={cn(
+          'fixed bottom-4 left-4 z-40 transition-all duration-300 transform',
+          showCounter ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+        )}
+      >
+        <Button
+          variant='outline'
+          size='sm'
+          className='gap-2 text-xs rounded-full px-3 border-primary/20 hover:border-primary/50 bg-background/80 backdrop-blur-sm'
+          onClick={toggleCounter}
         >
-          <span className='text-[#4FC3F7] text-lg font-bold'>🐛</span>
-          <span className='text-white text-base font-semibold tracking-wide'>
-            Bugs fixed:
-          </span>
-          <span className='text-[#4FC3F7] text-xl font-extrabold ml-1 drop-shadow'>
-            {bugsFound}
-          </span>
-        </div>
-      )}
+          <span className='text-sm'>🐛</span>
+          <span>{bugsFound}</span>
+          {!showCounter && <span className='sr-only'>bugs found</span>}
+        </Button>
+      </div>
     </div>
   );
 }

@@ -51,6 +51,11 @@ module.exports = {
           foreground: 'hsl(var(--card-foreground))',
         },
       },
+      borderRadius: {
+        lg: 'var(--radius)',
+        md: 'calc(var(--radius) - 2px)',
+        sm: 'calc(var(--radius) - 4px)',
+      },
       keyframes: {
         'accordion-down': {
           from: { height: 0 },
@@ -60,10 +65,27 @@ module.exports = {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: 0 },
         },
+        'fade-in-out': {
+          '0%': { opacity: 0, transform: 'scale(0.9)' },
+          '10%': { opacity: 1, transform: 'scale(1)' },
+          '90%': { opacity: 1, transform: 'scale(1)' },
+          '100%': { opacity: 0, transform: 'scale(0.9)' },
+        },
+        wiggle: {
+          '0%, 100%': { transform: 'rotate(-3deg)' },
+          '50%': { transform: 'rotate(3deg)' },
+        },
+        'pop-in': {
+          '0%': { opacity: 0, transform: 'scale(0.95) translateY(-10px)' },
+          '100%': { opacity: 1, transform: 'scale(1) translateY(0)' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        'fade-in-out': 'fade-in-out 2s ease-in-out',
+        wiggle: 'wiggle 1s ease-in-out infinite',
+        'pop-in': 'pop-in 0.3s ease-out',
       },
     },
   },
