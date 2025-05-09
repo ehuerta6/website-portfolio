@@ -13,11 +13,11 @@ const Hero = () => {
           <span className='font-bold'>Available for Hire</span>
         </Badge>
 
-        <h2 className='text-4xl md:text-6xl font-bold mb-6 tracking-tight'>
-          Hi, I'm <span className='text-primary font-bold'>John Doe</span>
+        <h2 className='text-5xl md:text-7xl font-extrabold mb-6 tracking-tight'>
+          Hi, I'm <span className='text-primary font-extrabold'>John Doe</span>
         </h2>
 
-        <p className='text-lg md:text-xl text-white/70 mb-8 max-w-2xl mx-auto leading-relaxed'>
+        <p className='text-xl font-bold text-white/80 mb-8 max-w-2xl mx-auto leading-relaxed'>
           Specializing in{' '}
           <span className='text-primary font-bold'>Web Development</span> and{' '}
           <span className='text-primary font-bold'>Data Analysis</span>.

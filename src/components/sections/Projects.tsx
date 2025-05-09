@@ -1,58 +1,87 @@
-import { Button } from '../ui/button';
-import { Card } from '../ui/card';
-import { Badge } from '../ui/badge';
-import { Eye, ExternalLink } from 'lucide-react';
+import { ExternalLink, Image as ImageIcon } from 'lucide-react';
+
+const projects = [
+  {
+    name: 'E-Commerce Platform',
+    subtitle: 'A full-featured online shopping experience',
+    tech: ['React', 'Node.js', 'Firebase'],
+    demo: '#',
+    details: '#',
+  },
+  {
+    name: 'Sales Analytics Dashboard',
+    subtitle: 'Interactive visualization of sales data',
+    tech: ['MySQL', 'D3.js', 'Python'],
+    demo: '#',
+    details: '#',
+  },
+  {
+    name: 'Portfolio Website',
+    subtitle: 'Responsive personal portfolio site',
+    tech: ['Next.js', 'Tailwind', 'TypeScript'],
+    demo: '#',
+    details: '#',
+  },
+];
 
 const Projects = () => {
   return (
-    <section id='projects' className='py-12 px-4 bg-muted/5'>
+    <section id='projects' className='py-16 px-4'>
       <div className='container mx-auto'>
-        <div className='text-center mb-8'>
-          <h2 className='text-3xl font-bold mb-3'>Projects</h2>
-          <p className='text-lg text-white/70 max-w-xl mx-auto'>
-            A showcase of my latest{' '}
-            <span className='text-primary font-bold'>work</span> and{' '}
-            <span className='text-primary font-bold'>experiments</span>.
+        <div className='text-center mb-10'>
+          <h2 className='text-5xl font-extrabold text-white mb-2'>
+            My Projects
+          </h2>
+          <p className='text-xl font-bold text-white/80 max-w-2xl mx-auto'>
+            A showcase of my work in web development and data analysis
           </p>
         </div>
-
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
-          {[1, 2, 3].map((project) => (
-            <Card
-              key={project}
-              className='p-5 bg-[#0B111E] border border-white/10 rounded-xl flex flex-col gap-4'
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+          {projects.map((project) => (
+            <div
+              key={project.name}
+              className='rounded-xl overflow-hidden bg-[#0B111E] border border-white/10 flex flex-col h-full'
             >
-              <div className='flex items-center gap-2 mb-2'>
-                <Badge className='bg-primary text-primary-foreground font-bold'>
-                  Featured
-                </Badge>
-                <span className='text-xs text-white/60'>2025</span>
+              {/* Image Placeholder */}
+              <div className='bg-gray-200 flex items-center justify-center h-48 md:h-56 w-full'>
+                <ImageIcon className='h-12 w-12 text-gray-400' />
               </div>
-              <h3 className='text-xl font-bold text-white mb-1'>
-                Project Title {project}
-              </h3>
-              <p className='text-white/80 text-sm mb-2'>
-                This is a <span className='font-bold text-primary'>React</span>{' '}
-                and <span className='font-bold text-primary'>TypeScript</span>{' '}
-                project that demonstrates{' '}
-                <span className='font-bold'>modern UI</span> and{' '}
-                <span className='font-bold'>clean code</span>.
-              </p>
-              <div className='flex gap-3 mt-auto'>
-                <Button
-                  size='sm'
-                  className='btn-transparent font-bold flex items-center gap-1'
-                >
-                  <Eye className='h-4 w-4' /> Demo
-                </Button>
-                <Button
-                  size='sm'
-                  className='btn-transparent font-bold flex items-center gap-1'
-                >
-                  <ExternalLink className='h-4 w-4' /> Code
-                </Button>
+              {/* Card Content */}
+              <div className='flex flex-col flex-1 p-6'>
+                <h3 className='text-2xl font-bold text-white mb-1'>
+                  {project.name}
+                </h3>
+                <p className='text-base text-white/70 mb-4'>
+                  {project.subtitle}
+                </p>
+                <div className='flex flex-wrap gap-2 mb-6'>
+                  {project.tech.map((tech) => (
+                    <span
+                      key={tech}
+                      className='px-3 py-1 rounded-full bg-white/5 text-white text-sm font-normal border border-white/10'
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                <div className='flex items-center justify-between mt-auto gap-2'>
+                  <a
+                    href={project.details}
+                    className='px-4 py-2 rounded border border-white text-white text-sm font-semibold hover:bg-white/10 transition-colors'
+                  >
+                    View Details
+                  </a>
+                  <a
+                    href={project.demo}
+                    className='px-4 py-2 rounded bg-[#4FC3F7] text-white text-sm font-semibold flex items-center gap-1 hover:bg-[#2196c9] transition-colors'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                  >
+                    Live Demo <ExternalLink className='h-4 w-4' />
+                  </a>
+                </div>
               </div>
-            </Card>
+            </div>
           ))}
         </div>
       </div>

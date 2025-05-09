@@ -6,8 +6,8 @@ const About = () => {
     <section id='about' className='py-12 px-4'>
       <div className='container mx-auto'>
         <div className='text-center mb-8'>
-          <h2 className='text-3xl font-bold mb-3'>About Me</h2>
-          <p className='text-lg text-white/70 max-w-xl mx-auto'>
+          <h2 className='text-5xl font-extrabold mb-3'>About Me</h2>
+          <p className='text-xl font-bold text-white/80 max-w-xl mx-auto'>
             Bridging the gap between{' '}
             <span className='text-primary font-bold'>web development</span> and{' '}
             <span className='text-primary font-bold'>data analysis</span>.
@@ -25,7 +25,7 @@ const About = () => {
           {/* Right Column - Content */}
           <div className='space-y-4 text-white/80 leading-relaxed'>
             <h3 className='text-xl font-bold mb-2'>My Journey</h3>
-            <p>
+            <p className='text-base font-normal'>
               I'm{' '}
               <span className='text-primary font-bold'>Emiliano Huerta</span>, a
               passionate developer with over{' '}
@@ -34,14 +34,14 @@ const About = () => {
               <span className='text-primary font-bold'>web development</span>{' '}
               and <span className='text-primary font-bold'>data analysis</span>.
             </p>
-            <p>
+            <p className='text-base font-normal'>
               On the <span className='font-bold'>web development</span> side, I
               create modern, responsive applications using{' '}
               <span className='text-primary font-bold'>React</span>,{' '}
               <span className='text-primary font-bold'>Next.js</span>, and other
               cutting-edge technologies.
             </p>
-            <p>
+            <p className='text-base font-normal'>
               For <span className='font-bold'>data analysis</span>, I leverage
               my skills in <span className='text-primary font-bold'>SQL</span>,{' '}
               <span className='text-primary font-bold'>data visualization</span>
