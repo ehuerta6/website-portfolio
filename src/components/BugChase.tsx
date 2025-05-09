@@ -34,14 +34,6 @@ export default function BugChase() {
   const bugRef = useRef<HTMLDivElement>(null);
   const [showTechStack, setShowTechStack] = useState(false);
 
-  // Initialize bug counter from localStorage
-  useEffect(() => {
-    const savedBugs = localStorage.getItem('bugsFound');
-    if (savedBugs) {
-      setBugsFound(Number.parseInt(savedBugs, 10));
-    }
-  }, []);
-
   // Randomly show the bug
   useEffect(() => {
     const showBug = () => {
@@ -154,7 +146,6 @@ export default function BugChase() {
     // Update bug counter
     const newCount = bugsFound + 1;
     setBugsFound(newCount);
-    localStorage.setItem('bugsFound', newCount.toString());
 
     // Hide message after some time
     setTimeout(() => {
@@ -212,19 +203,21 @@ export default function BugChase() {
         </div>
       )}
 
-      {/* Bug counter */}
-      <div className='fixed bottom-4 left-4 z-40 transition-all duration-300 transform opacity-100 translate-y-0'>
-        <Button
-          variant='outline'
-          size='sm'
-          className='gap-2 text-xs rounded-full px-3 border-primary/20 hover:border-primary/50 bg-background/80 backdrop-blur-sm'
-          disabled
-        >
-          <span className='text-sm'>🐛</span>
-          <span>{bugsFound}</span>
-          <span className='sr-only'>bugs found</span>
-        </Button>
-      </div>
+      {/* Bug counter (only if bugsFound > 0) */}
+      {bugsFound > 0 && (
+        <div className='fixed bottom-4 left-4 z-40 transition-all duration-300 transform opacity-100 translate-y-0'>
+          <Button
+            variant='outline'
+            size='sm'
+            className='gap-2 text-xs rounded-full px-3 border-primary/20 hover:border-primary/50 bg-background/80 backdrop-blur-sm'
+            disabled
+          >
+            <span className='text-sm'>🐛</span>
+            <span>{bugsFound}</span>
+            <span className='sr-only'>bugs found</span>
+          </Button>
+        </div>
+      )}
 
       {/* Tech Stack Floating Button */}
       <div className='fixed bottom-4 right-4 z-50'>
