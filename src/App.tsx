@@ -1,7 +1,15 @@
 import { Button } from './components/ui/button';
 import { Card } from './components/ui/card';
 import { Badge } from './components/ui/badge';
-import { Github, Linkedin, Mail, Twitter, Code } from 'lucide-react';
+import {
+  Github,
+  Linkedin,
+  Mail,
+  Twitter,
+  Code,
+  ExternalLink,
+  Eye,
+} from 'lucide-react';
 
 const App = () => {
   return (
@@ -51,6 +59,10 @@ const App = () => {
       {/* Hero Section */}
       <section className='min-h-screen pt-32 pb-24 px-6 flex items-center'>
         <div className='container mx-auto text-center'>
+          <p className='text-lg text-muted-foreground mb-4 tracking-wide'>
+            Welcome to My World
+          </p>
+
           <Badge
             variant='outline'
             className='mb-8 px-4 py-2 text-sm font-medium border-primary/30 text-primary hover:bg-primary/10 transition-colors'
@@ -94,40 +106,131 @@ const App = () => {
       </section>
 
       {/* About Section */}
-      <section id='about' className='py-24 px-6 bg-muted/30'>
+      <section id='about' className='py-24 px-6'>
         <div className='container mx-auto'>
-          <h2 className='text-3xl font-bold mb-12 text-center'>About Me</h2>
-          <div className='max-w-3xl mx-auto text-muted-foreground'>
-            <p className='mb-6 text-lg leading-relaxed'>
-              I'm a full-stack developer with a passion for creating elegant
-              solutions to complex problems. With expertise in modern web
-              technologies, I focus on building responsive and user-friendly
-              applications.
+          <div className='text-center mb-16'>
+            <h2 className='text-4xl font-bold mb-4'>About Me</h2>
+            <p className='text-xl text-muted-foreground'>
+              Bridging the gap between web development and data analysis
             </p>
+          </div>
+
+          <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 items-center'>
+            {/* Left Column - Image */}
+            <div className='relative aspect-square rounded-lg overflow-hidden bg-muted/30 border border-border/40'>
+              <div className='absolute inset-0 flex items-center justify-center text-muted-foreground'>
+                <span className='text-lg'>Portrait Placeholder</span>
+              </div>
+            </div>
+
+            {/* Right Column - Content */}
+            <div className='space-y-8'>
+              <div>
+                <h3 className='text-2xl font-semibold mb-6'>My Journey</h3>
+                <div className='space-y-4 text-muted-foreground leading-relaxed'>
+                  <p>
+                    I'm Emiliano Huerta, a passionate developer with over 5
+                    years of experience in both web development and data
+                    analysis. My technical journey began with building
+                    responsive web applications, and evolved to include
+                    data-driven solutions that help businesses make informed
+                    decisions.
+                  </p>
+                  <p>
+                    On the web development side, I create modern, responsive
+                    applications using React, Next.js, and other cutting-edge
+                    technologies. For data analysis, I leverage my skills in
+                    SQL, data visualization, and statistical analysis to
+                    transform raw data into actionable insights.
+                  </p>
+                </div>
+              </div>
+
+              {/* Social Links */}
+              <div className='flex flex-wrap gap-4 pt-4'>
+                <Button
+                  variant='outline'
+                  size='lg'
+                  className='bg-[#0A1A2F] text-white border-[#0A1A2F] hover:bg-[#0A1A2F]/90 transition-colors'
+                >
+                  <Github className='h-5 w-5 mr-2' />
+                  GitHub
+                </Button>
+                <Button
+                  size='lg'
+                  className='bg-primary text-primary-foreground hover:bg-primary/90 transition-colors'
+                >
+                  <Linkedin className='h-5 w-5 mr-2' />
+                  LinkedIn
+                </Button>
+                <Button
+                  variant='outline'
+                  size='lg'
+                  className='border-muted-foreground/30 text-muted-foreground hover:bg-muted/30 transition-colors'
+                >
+                  <Mail className='h-5 w-5 mr-2' />
+                  Email
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Projects Section */}
-      <section id='projects' className='py-24 px-6'>
+      <section id='projects' className='py-24 px-6 bg-muted/5'>
         <div className='container mx-auto'>
-          <h2 className='text-3xl font-bold mb-16 text-center'>
-            Featured Projects
-          </h2>
+          <div className='text-center mb-16'>
+            <h2 className='text-4xl font-bold mb-4'>Projects</h2>
+            <p className='text-xl text-muted-foreground'>
+              A showcase of my latest work and experiments
+            </p>
+          </div>
+
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {[1, 2, 3].map((project) => (
               <Card
                 key={project}
-                className='bg-muted/30 border-border/40 hover:border-primary/40 transition-colors'
+                className='group bg-background border-border/40 hover:border-primary/40 transition-all duration-300'
               >
-                <div className='p-8'>
-                  <h3 className='text-xl font-bold mb-4'>Project {project}</h3>
-                  <p className='text-muted-foreground mb-6 leading-relaxed'>
+                {/* Project Image */}
+                <div className='relative aspect-video overflow-hidden rounded-t-lg bg-muted/30'>
+                  <div className='absolute inset-0 flex items-center justify-center text-muted-foreground'>
+                    Project Image {project}
+                  </div>
+                </div>
+
+                {/* Project Content */}
+                <div className='p-6 space-y-4'>
+                  <h3 className='text-xl font-semibold'>Project {project}</h3>
+                  <p className='text-muted-foreground'>
                     A brief description of the project and its key features.
                   </p>
-                  <div className='flex gap-2'>
+
+                  {/* Technologies */}
+                  <div className='flex flex-wrap gap-2'>
                     <Badge variant='secondary'>React</Badge>
                     <Badge variant='secondary'>TypeScript</Badge>
+                    <Badge variant='secondary'>Node.js</Badge>
+                  </div>
+
+                  {/* Action Buttons */}
+                  <div className='flex gap-3 pt-4'>
+                    <Button
+                      variant='outline'
+                      size='sm'
+                      className='flex-1 border-primary text-primary hover:bg-primary/10'
+                    >
+                      <Eye className='h-4 w-4 mr-2' />
+                      View Details
+                    </Button>
+                    <Button
+                      size='sm'
+                      className='flex-1 bg-[#0A1A2F] text-white hover:bg-[#0A1A2F]/90'
+                    >
+                      <ExternalLink className='h-4 w-4 mr-2' />
+                      View Project
+                    </Button>
                   </div>
                 </div>
               </Card>
