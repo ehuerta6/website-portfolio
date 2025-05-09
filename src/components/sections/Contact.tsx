@@ -5,25 +5,26 @@ import { Textarea } from '../ui/textarea';
 
 const Contact = () => {
   return (
-    <section id='contact' className='py-16'>
+    <section id='contact' className='py-10'>
       <div className='container mx-auto px-4'>
         {/* Header */}
-        <div className='text-center mb-12'>
+        <div className='text-center mb-8'>
           <h2 className='text-3xl font-bold mb-3'>Get In Touch</h2>
-          <p className='text-base text-white/60'>
-            Have a project in mind? Let's work together!
+          <p className='text-lg text-white/70 max-w-xl mx-auto'>
+            Have a project in mind?{' '}
+            <span className='font-bold text-primary'>Let's work together!</span>
           </p>
         </div>
 
         {/* Contact Container */}
         <div className='flex flex-col md:flex-row rounded-xl border border-white/10 overflow-hidden max-w-5xl mx-auto'>
           {/* Left Side - Contact Information */}
-          <div className='bg-[#0B111E] flex-1 p-8 flex flex-col justify-between'>
+          <div className='bg-[#0B111E] flex-1 p-6 flex flex-col justify-between'>
             <div>
-              <h3 className='text-xl font-bold text-[#4FC3F7] mb-8'>
+              <h3 className='text-xl font-bold text-[#4FC3F7] mb-6'>
                 Contact Information
               </h3>
-              <div className='space-y-6'>
+              <div className='space-y-5'>
                 <div className='flex items-center gap-3'>
                   <Mail className='h-6 w-6 text-[#4FC3F7]' />
                   <div>
@@ -76,7 +77,7 @@ const Contact = () => {
             </div>
             <Button
               variant='outline'
-              className='btn-transparent w-full mt-8 flex items-center justify-between'
+              className='btn-transparent w-full mt-6 flex items-center justify-between'
             >
               <span className='font-semibold'>Download Resume</span>
               <Download className='h-4 w-4 ml-2' />
@@ -84,12 +85,12 @@ const Contact = () => {
           </div>
 
           {/* Right Side - Contact Form */}
-          <div className='bg-[#030712] flex-1 p-8 border-l border-white/10'>
-            <h3 className='text-xl font-bold text-[#4FC3F7] mb-8'>
+          <div className='bg-[#030712] flex-1 p-6 border-l border-white/10'>
+            <h3 className='text-xl font-bold text-[#4FC3F7] mb-6'>
               Send a Message
             </h3>
 
-            <form className='space-y-5'>
+            <form className='space-y-4'>
               <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                 <div>
                   <label htmlFor='name' className='form-label'>
@@ -132,7 +133,7 @@ const Contact = () => {
                 <Textarea
                   id='message'
                   placeholder='Your message'
-                  className='form-input min-h-[120px]'
+                  className='form-input min-h-[100px]'
                 />
               </div>
               <Button
@@ -140,7 +141,7 @@ const Contact = () => {
                 className='btn-transparent w-full flex items-center justify-center'
               >
                 <Send className='mr-2 h-4 w-4' />
-                Send Message
+                <span className='font-bold'>Send Message</span>
               </Button>
             </form>
           </div>

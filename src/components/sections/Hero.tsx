@@ -4,48 +4,45 @@ import { FolderGit2, FileText, Send } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section className='min-h-screen pt-32 pb-24 px-6 flex items-center'>
+    <section className='min-h-screen pt-24 pb-10 px-4 flex items-center'>
       <div className='container mx-auto text-center'>
         <Badge
           variant='outline'
-          className='mb-8 px-3 py-1 text-xs font-medium text-white border-white/30 hover:border-white/50 transition-all duration-300 animate-float'
+          className='mb-6 px-3 py-1 text-xs font-medium text-white border-white/30 hover:border-white/50 transition-all duration-300 animate-float'
         >
-          Available for Hire
+          <span className='font-bold'>Available for Hire</span>
         </Badge>
 
-        <h2 className='text-5xl md:text-7xl font-bold mb-8 tracking-tight'>
+        <h2 className='text-4xl md:text-6xl font-bold mb-6 tracking-tight'>
           Hi, I'm <span className='text-primary font-bold'>John Doe</span>
         </h2>
 
-        <p className='text-xl md:text-2xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed'>
+        <p className='text-lg md:text-xl text-white/70 mb-8 max-w-2xl mx-auto leading-relaxed'>
           Specializing in{' '}
           <span className='text-primary font-bold'>Web Development</span> and{' '}
-          <span className='text-primary font-bold'>Data Analysis</span>
+          <span className='text-primary font-bold'>Data Analysis</span>.
         </p>
 
-        <div className='flex flex-col sm:flex-row items-center justify-center gap-4'>
-          <Button
-            size='lg'
-            className='bg-primary text-primary-foreground hover:bg-primary/90 px-8 transition-colors font-bold'
-          >
+        <div className='flex flex-col sm:flex-row justify-center gap-4'>
+          <Button size='lg' className='btn-transparent px-8 font-bold'>
             <FolderGit2 className='h-5 w-5 mr-2' />
-            View Projects
+            <span className='font-bold'>View Projects</span>
           </Button>
           <Button
             variant='outline'
             size='lg'
-            className='border-muted-foreground/30 text-muted-foreground hover:bg-muted/30 px-8 transition-colors font-bold'
+            className='btn-transparent px-8 font-bold'
           >
             <FileText className='h-5 w-5 mr-2' />
-            My Resume
+            <span className='font-bold'>My Resume</span>
           </Button>
           <Button
             variant='outline'
             size='lg'
-            className='border-[#0A1A2F] text-[#0A1A2F] hover:bg-[#0A1A2F]/10 px-8 transition-colors font-bold'
+            className='btn-transparent px-8 font-bold'
           >
             <Send className='h-5 w-5 mr-2' />
-            Contact Me
+            <span className='font-bold'>Contact Me</span>
           </Button>
         </div>
       </div>
