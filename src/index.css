@@ -118,3 +118,17 @@
 .bg-dark-translucent {
   background-color: rgba(3, 7, 18, 0.6);
 }
+
+/* Global button styles */
+.btn-transparent {
+  @apply bg-transparent border border-white text-white hover:bg-white/10 transition-all duration-200;
+}
+
+/* Form styles */
+.form-input {
+  @apply bg-transparent border border-white/20 focus:border-white/40 transition-colors duration-200;
+}
+
+.form-label {
+  @apply text-sm text-white/60 mb-1.5 block;
+}

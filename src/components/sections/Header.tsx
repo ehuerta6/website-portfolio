@@ -1,18 +1,25 @@
-import { Button } from '../ui/button';
 import { Code } from 'lucide-react';
-import { ScrollProgress } from '../ui/scroll-progress';
+import ScrollProgress from '../ui/scroll-progress';
 
 const Header = () => {
   return (
-    <header className='fixed top-0 left-0 right-0 z-50 bg-dark-translucent backdrop-blur-sm'>
+    <header className='fixed top-0 left-0 right-0 z-50 bg-dark-translucent backdrop-blur-sm border-b border-border/20'>
       <ScrollProgress />
-      <div className='container mx-auto px-4 py-4'>
+      <div className='container mx-auto px-6 py-5'>
         <div className='flex items-center justify-between'>
-          <div className='flex items-center space-x-2'>
-            <Code className='h-6 w-6 text-primary' />
-            <span className='text-xl font-bold'>DevPortfolio</span>
+          <div className='flex items-center space-x-3'>
+            <Code className='h-7 w-7 text-primary' />
+            <span className='text-2xl font-bold tracking-tight'>
+              DevPortfolio
+            </span>
           </div>
-          <nav className='hidden md:flex items-center space-x-6'>
+          <nav className='hidden md:flex items-center space-x-8'>
+            <a
+              href='#home'
+              className='text-sm font-medium hover:text-primary transition-colors'
+            >
+              Home
+            </a>
             <a
               href='#about'
               className='text-sm font-medium hover:text-primary transition-colors'
