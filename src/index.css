@@ -181,24 +181,24 @@
   background: #9b5de5 !important;
 }
 
-troll-mode .text-\[\#4FC3F7\],
-troll-mode .hover\:text-\[\#4FC3F7\]:hover,
-troll-mode .border-\[\#4FC3F7\],
-troll-mode .hover\:border-\[\#4FC3F7\]:hover {
+.troll-mode .text-\[\#4FC3F7\],
+.troll-mode .hover\:text-\[\#4FC3F7\]:hover,
+.troll-mode .border-\[\#4FC3F7\],
+.troll-mode .hover\:border-\[\#4FC3F7\]:hover {
   color: #7fffd4 !important;
   border-color: #7fffd4 !important;
 }
-troll-mode .bg-\[\#4FC3F7\] {
+.troll-mode .bg-\[\#4FC3F7\] {
   background-color: #7fffd4 !important;
 }
-troll-mode a,
-troll-mode .text-primary,
-troll-mode .hover\:text-primary:hover {
+.troll-mode a,
+.troll-mode .text-primary,
+.troll-mode .hover\:text-primary:hover {
   color: #7fffd4 !important;
 }
-troll-mode .border-primary {
+.troll-mode .border-primary {
   border-color: #7fffd4 !important;
 }
-troll-mode ::-webkit-scrollbar-thumb {
+.troll-mode ::-webkit-scrollbar-thumb {
   background: #7fffd4 !important;
 }

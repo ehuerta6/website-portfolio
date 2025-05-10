@@ -1,8 +1,9 @@
 import { Button } from '../ui/button';
 import { Github, Linkedin, Mail } from 'lucide-react';
-import JohnPorkImg from '../../assets/JohnPork.jpg';
-import ChicoImg from '../../assets/Chico.jpg';
-import TrollFaceImg from '../../assets/TrollFace.jpg';
+import JohnPorkImg from '../../assets/eastereggs/JohnPork.jpg';
+import ChicoImg from '../../assets/eastereggs/Chico.jpg';
+import TrollFaceImg from '../../assets/eastereggs/TrollFace.jpg';
+import ProfileImg from '../../assets/profile/profile-picture.jpg';
 
 type EasterEggMode = 'none' | 'johnpork' | 'chico' | 'troll';
 
@@ -11,7 +12,7 @@ type AboutProps = {
 };
 
 const About = ({ easterEgg }: AboutProps) => {
-  let aboutImg = null;
+  let aboutImg = ProfileImg;
   if (easterEgg === 'johnpork') aboutImg = JohnPorkImg;
   else if (easterEgg === 'chico') aboutImg = ChicoImg;
   else if (easterEgg === 'troll') aboutImg = TrollFaceImg;
@@ -30,32 +31,35 @@ const About = ({ easterEgg }: AboutProps) => {
 
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-6 items-center'>
           {/* Left Column - Image */}
-          <div className='relative aspect-square rounded-lg overflow-hidden bg-muted/30 border border-border/40 flex items-center justify-center'>
-            {aboutImg ? (
-              <img
-                src={aboutImg}
-                alt='Easter Egg'
-                className='object-cover w-full h-full'
-              />
-            ) : (
-              <span className='text-base text-white/40'>
-                Portrait Placeholder
-              </span>
-            )}
+          <div className='relative aspect-square rounded-lg overflow-hidden bg-muted/30 border border-border/40 flex items-center justify-center max-w-md mx-auto lg:mx-0'>
+            <img
+              src={aboutImg}
+              alt='Emiliano Huerta'
+              className='object-cover w-full h-full'
+            />
           </div>
 
           {/* Right Column - Content */}
           <div className='space-y-4 text-base font-normal text-white/80 leading-relaxed'>
             <h3 className='text-2xl font-semibold mb-2'>My Journey</h3>
             <p>
-              I'm{' '}
-              <span className='text-primary font-medium'>Emiliano Huerta</span>,
-              a passionate developer with over{' '}
-              <span className='text-primary font-medium'>5 years</span> of
-              experience in both{' '}
+              I'm Emiliano, a{' '}
+              <span className='text-primary font-medium'>
+                full-stack software engineer
+              </span>{' '}
+              passionate about{' '}
               <span className='text-primary font-medium'>web development</span>{' '}
               and{' '}
               <span className='text-primary font-medium'>data analysis</span>.
+              Creating{' '}
+              <span className='text-primary font-medium'>
+                clean, efficient solutions
+              </span>{' '}
+              that solve real problems. Currently exploring both paths -
+              crafting{' '}
+              <span className='text-primary font-medium'>user experiences</span>{' '}
+              or uncovering{' '}
+              <span className='text-primary font-medium'>data insights</span>.
             </p>
             <p>
               On the <span className='font-medium'>web development</span> side,
@@ -83,6 +87,9 @@ const About = ({ easterEgg }: AboutProps) => {
                 size='icon'
                 className='btn-transparent h-10 w-10'
                 aria-label='GitHub Profile'
+                onClick={() =>
+                  window.open('https://github.com/ehuerta6', '_blank')
+                }
               >
                 <Github className='h-5 w-5' />
               </Button>
@@ -91,6 +98,9 @@ const About = ({ easterEgg }: AboutProps) => {
                 size='icon'
                 className='btn-transparent h-10 w-10'
                 aria-label='LinkedIn Profile'
+                onClick={() =>
+                  window.open('https://linkedin.com/in/emihuerta288', '_blank')
+                }
               >
                 <Linkedin className='h-5 w-5' />
               </Button>
@@ -99,6 +109,9 @@ const About = ({ easterEgg }: AboutProps) => {
                 size='icon'
                 className='btn-transparent h-10 w-10'
                 aria-label='Email Contact'
+                onClick={() =>
+                  (window.location.href = 'mailto:emihuerta288@gmail.com')
+                }
               >
                 <Mail className='h-5 w-5' />
               </Button>

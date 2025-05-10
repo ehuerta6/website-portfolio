@@ -78,10 +78,10 @@ const Contact = ({ easterEgg, triggerEasterEgg }: ContactProps) => {
                       Email
                     </span>
                     <a
-                      href='mailto:hello@example.com'
+                      href='mailto:emihuerta288@gmail.com'
                       className='text-white/80 text-base font-normal hover:text-[#4FC3F7] transition-colors'
                     >
-                      hello@example.com
+                      emihuerta288@gmail.com
                     </a>
                   </div>
                 </div>
@@ -93,12 +93,12 @@ const Contact = ({ easterEgg, triggerEasterEgg }: ContactProps) => {
                       LinkedIn
                     </span>
                     <a
-                      href='https://linkedin.com/in/emilianohuerta'
+                      href='https://linkedin.com/in/emihuerta288'
                       target='_blank'
                       rel='noopener noreferrer'
                       className='text-white/80 text-base font-normal hover:text-[#4FC3F7] transition-colors'
                     >
-                      linkedin.com/in/emilianohuerta
+                      linkedin.com/in/emihuerta288
                     </a>
                   </div>
                 </div>
@@ -110,12 +110,12 @@ const Contact = ({ easterEgg, triggerEasterEgg }: ContactProps) => {
                       GitHub
                     </span>
                     <a
-                      href='https://github.com/emilianohuerta'
+                      href='https://github.com/ehuerta6'
                       target='_blank'
                       rel='noopener noreferrer'
                       className='text-white/80 text-base font-normal hover:text-[#4FC3F7] transition-colors'
                     >
-                      github.com/emilianohuerta
+                      github.com/ehuerta6
                     </a>
                   </div>
                 </div>

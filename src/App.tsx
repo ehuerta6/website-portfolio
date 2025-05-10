@@ -7,9 +7,9 @@ import Contact from './components/sections/Contact';
 import Footer from './components/sections/Footer';
 import BugChase from './components/BugChase';
 import { useState } from 'react';
-import JohnPorkAudio from './assets/JohnPorkCalling.mp3';
-import NellyFurtadoManeater from './assets/NellyFurtadoManeater.mp3';
-import MangosPhonk from './assets/MangosPhonk.mp3';
+import JohnPorkAudio from './assets/eastereggs/JohnPorkCalling.mp3';
+import NellyFurtadoManeater from './assets/eastereggs/NellyFurtadoManeater.mp3';
+import MangosPhonk from './assets/eastereggs/MangosPhonk.mp3';
 
 const SectionSeparator = () => (
   <div
