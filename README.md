@@ -1,6 +1,6 @@
 # DevPortfolio – Emiliano Huerta
 
-A modern, professional portfolio website built with React, Vite, Tailwind CSS, and more. Showcasing my work, skills, and journey as a full-stack software engineer passionate about web development and data analysis.
+A modern, professional portfolio website built with React, Vite, Tailwind CSS, and more. This site showcases my work, skills, and journey as a full-stack software engineer, with a focus on web development and data analysis. Explore my background, featured projects, and interactive UI—all in one place.
 
 ## 🚀 Live Preview
 
@@ -23,7 +23,7 @@ A modern, professional portfolio website built with React, Vite, Tailwind CSS, a
 
 ### Projects
 
-- Highlighted project(s) with details, tech stack, and live demo links.
+- Featured project(s) with details, tech stack, and live demo links.
 - Fancy details modal for in-depth project info.
 
 ### Skills
@@ -48,8 +48,6 @@ A modern, professional portfolio website built with React, Vite, Tailwind CSS, a
 - **TypeScript**
 - **ShadCN/UI**
 - **Lucide Icons**
-- **Firebase & Firestore** (for project demo)
-- **Flask** (for project demo)
 
 ---
 
@@ -76,8 +74,6 @@ A modern, professional portfolio website built with React, Vite, Tailwind CSS, a
 
 - [ShadCN/UI](https://ui.shadcn.com/) for UI components
 - [Lucide Icons](https://lucide.dev/)
-- [TMDB API](https://www.themoviedb.org/documentation/api) for project demo data
-- [Firebase](https://firebase.google.com/) & [Flask](https://flask.palletsprojects.com/) for backend
 - Inspiration from many open-source portfolios and the React community
 
 ---

@@ -1,8 +1,6 @@
 import {
   Globe,
   Database,
-  Terminal,
-  Table,
   BarChart3,
   Code,
   BarChart,
