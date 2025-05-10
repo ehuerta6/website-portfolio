@@ -4,7 +4,7 @@ A modern, professional portfolio website built with React, Vite, Tailwind CSS, a
 
 ## 🚀 Live Preview
 
-[View Portfolio Live](https://ehuerta6.github.io/webflix-movie-app/)
+[View Portfolio Live](https://ehuerta6.github.io/DevPortfolio/)
 
 ![Portfolio Screenshot](./src/assets/projects/portfolio.png)
 
