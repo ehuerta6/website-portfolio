@@ -1,6 +1,6 @@
 {
   "name": "website-portfolio",
-  "homepage": "https://ehuerta6.github.io/website-portfolio",
+  "homepage": "https://ehuerta6.github.io/DevPortfolio",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -17,6 +17,7 @@
     "@shadcn/ui": "^0.0.4",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
+    "gh-pages": "^6.3.0",
     "lucide-react": "^0.294.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
