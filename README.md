@@ -1,54 +1,87 @@
-# React + TypeScript + Vite
+# DevPortfolio – Emiliano Huerta
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, professional portfolio website built with React, Vite, Tailwind CSS, and more. Showcasing my work, skills, and journey as a full-stack software engineer passionate about web development and data analysis.
 
-Currently, two official plugins are available:
+## 🚀 Live Preview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[View Portfolio Live](https://ehuerta6.github.io/webflix-movie-app/)
 
-## Expanding the ESLint configuration
+![Portfolio Screenshot](./src/assets/projects/portfolio.png)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 📚 Site Sections
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Hero
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- Eye-catching introduction with name, tagline, and call-to-action buttons.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+### About
+
+- Personal background, journey, and professional focus.
+- Profile picture and summary of experience.
+
+### Projects
+
+- Highlighted project(s) with details, tech stack, and live demo links.
+- Fancy details modal for in-depth project info.
+
+### Skills
+
+- Visual grid of web development and data analysis skills/tools.
+
+### Contact
+
+- Contact form and direct links to email, LinkedIn, and GitHub.
+
+### Easter Eggs / Hidden Features
+
+- Fun interactive surprises and secret sections (try catching the bug or finding the tech stack!).
+
+---
+
+## 🛠️ Tech Stack
+
+- **React 18+**
+- **Vite**
+- **Tailwind CSS**
+- **TypeScript**
+- **ShadCN/UI**
+- **Lucide Icons**
+- **Firebase & Firestore** (for project demo)
+- **Flask** (for project demo)
+
+---
+
+## ⚙️ Setup & Local Development
+
+1. **Clone the repo:**
+   ```bash
+   git clone https://github.com/ehuerta6/website-portfolio.git
+   cd website-portfolio
+   ```
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+3. **Start the dev server:**
+   ```bash
+   npm run dev
+   ```
+4. **Open [http://localhost:5173](http://localhost:5173) in your browser.**
+
+---
+
+## 🙏 Credits / Acknowledgements
+
+- [ShadCN/UI](https://ui.shadcn.com/) for UI components
+- [Lucide Icons](https://lucide.dev/)
+- [TMDB API](https://www.themoviedb.org/documentation/api) for project demo data
+- [Firebase](https://firebase.google.com/) & [Flask](https://flask.palletsprojects.com/) for backend
+- Inspiration from many open-source portfolios and the React community
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License. See [LICENSE](./LICENSE) for details.
