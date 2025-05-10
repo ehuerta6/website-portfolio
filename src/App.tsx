@@ -54,7 +54,7 @@ function App() {
         <SectionSeparator />
         <Skills />
         <SectionSeparator />
-        <Contact easterEgg={easterEgg} triggerEasterEgg={setEasterEgg} />
+        <Contact triggerEasterEgg={setEasterEgg} />
       </main>
       <SectionSeparator />
       <Footer />

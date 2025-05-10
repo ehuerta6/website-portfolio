@@ -1,11 +1,4 @@
-import {
-  Globe,
-  Database,
-  BarChart3,
-  Code,
-  BarChart,
-  FileText,
-} from 'lucide-react';
+import { Globe, Database, BarChart3, Code, FileText } from 'lucide-react';
 
 const webDevSkills = [
   { name: 'JavaScript', icon: Code },
