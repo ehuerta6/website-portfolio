@@ -7,11 +7,10 @@ import React, { useState } from 'react';
 type EasterEggMode = 'none' | 'johnpork' | 'chico' | 'troll';
 
 type ContactProps = {
-  easterEgg: EasterEggMode;
   triggerEasterEgg: (mode: EasterEggMode) => void;
 };
 
-const Contact = ({ easterEgg, triggerEasterEgg }: ContactProps) => {
+const Contact = ({ triggerEasterEgg }: ContactProps) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [subject, setSubject] = useState('');

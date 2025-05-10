@@ -31,18 +31,6 @@ const dataSkills = [
   { name: 'Excel', icon: FileText },
 ];
 
-const devSkills = [
-  { name: 'React', icon: Code },
-  { name: 'Next.js', icon: Code },
-  { name: 'TypeScript', icon: Code },
-];
-
-const analysisSkills = [
-  { name: 'Data Viz', icon: BarChart },
-  { name: 'Statistics', icon: BarChart },
-  { name: 'Python', icon: BarChart },
-];
-
 const Skills = () => {
   return (
     <section id='skills' className='py-16 px-4'>
